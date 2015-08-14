@@ -1,11 +1,11 @@
 from __future__ import unicode_literals
 
 try:
-    from urllib import urlencode
     from urlparse import urlparse, parse_qs
 except ImportError:
-    from urllib.parse import urlencode, urlparse, parse_qs
+    from urllib.parse import urlparse, parse_qs
 
+from django.utils.http import urlencode
 from django.views.generic import ListView
 
 
