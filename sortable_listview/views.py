@@ -61,8 +61,8 @@ class SortableListView(ListView):
         arguments that we don't want to preserve (sort parameter, 'page')
         """
         to_remove = self.get_querystring_parameter_to_remove()
-        query_string = urlparse(self.request.get_full_path()).query
-        query_dict = parse_qs(query_string)
+        query_dict = self.request.GET.dict()
+
         for arg in to_remove:
             if arg in query_dict:
                 del query_dict[arg]
